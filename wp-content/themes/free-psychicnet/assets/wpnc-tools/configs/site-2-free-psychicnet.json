@@ -1,0 +1,11 @@
+{
+  "id": "site-2-intuition-profile",
+  "type": "intuition_quiz",
+  "theme": {"accent":"#7d5a37","accentStrong":"#563b24","soft":"#fbf4ea"},
+  "eyebrow": "Self-reflection quiz",
+  "title": "What does your intuition notice first?",
+  "intro": "Rate a few everyday experiences to create a simple reflection profile.",
+  "disclaimer": "For entertainment and self-reflection only. This is not a psychological assessment or diagnosis.",
+  "dimensions": ["patterns","feelings","timing","empathy"],
+  "questions": ["I notice recurring patterns in ordinary events.","I can name how a situation feels in my body.","I sense when it is time to pause or act.","I pick up on the mood of a room.","I connect details others overlook.","I trust myself to check a first impression.","I notice meaningful timing without treating it as proof.","I can listen while keeping healthy boundaries."]
+}
