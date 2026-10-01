@@ -217,10 +217,23 @@ img {
 	background: var(--color-secondary);
 }
 
+.psychic-card__image picture {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
 .psychic-card__image img {
+	display: block;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	border-radius: inherit;
+}
+
+.psychic-card__image img[src*="psychic_orion-delacroix"] {
+	transform: scale(1.42);
+	transform-origin: center;
 }
 
 .psychic-card__status {
@@ -285,9 +298,51 @@ img {
 	font-size: var(--text-body-sm);
 }
 
-.psychic-card__stars {
-	color: var(--color-warning);
-	letter-spacing: 2px;
+.psychic-card__rating-mark {
+	position: relative;
+	display: inline-block;
+	width: 54px;
+	height: 8px;
+	margin-right: var(--space-1);
+}
+
+.psychic-card__rating-mark::before {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: var(--radius-full);
+	background: var(--color-warning);
+	box-shadow:
+		12px 0 0 var(--color-warning),
+		24px 0 0 var(--color-warning),
+		36px 0 0 var(--color-warning),
+		48px 0 0 var(--color-warning);
+}
+
+.star-rating--dots {
+	position: relative;
+	display: inline-block;
+	width: 54px;
+	height: 8px;
+}
+
+.star-rating--dots::before {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: var(--radius-full);
+	background: var(--color-warning);
+	box-shadow:
+		12px 0 0 var(--color-warning),
+		24px 0 0 var(--color-warning),
+		36px 0 0 var(--color-warning),
+		48px 0 0 var(--color-warning);
 }
 
 .psychic-card__review-count {
@@ -304,6 +359,19 @@ img {
 	font-size: var(--text-body-lg);
 	color: var(--color-text-primary);
 	font-weight: 600;
+}
+
+.psychic-card__free-time {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 0 var(--space-2);
+	padding: var(--space-2) var(--space-3);
+	color: var(--color-primary);
+	background: var(--color-primary-light);
+	border-radius: var(--radius-full);
+	font-size: var(--text-caption);
+	font-weight: 700;
 }
 
 .psychic-card__actions {
@@ -374,9 +442,26 @@ img {
 }
 
 .testimonial-card__stars {
-	color: var(--color-warning);
+	position: relative;
+	width: 74px;
+	height: 10px;
 	margin-bottom: var(--space-4);
-	letter-spacing: 2px;
+}
+
+.testimonial-card__stars::before {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 0;
+	width: 8px;
+	height: 8px;
+	border-radius: var(--radius-full);
+	background: var(--color-warning);
+	box-shadow:
+		16px 0 0 var(--color-warning),
+		32px 0 0 var(--color-warning),
+		48px 0 0 var(--color-warning),
+		64px 0 0 var(--color-warning);
 }
 
 .testimonial-card__quote {
