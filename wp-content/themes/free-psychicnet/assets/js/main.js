@@ -65,6 +65,41 @@
 		});
 	}
 
+	// Пошук у каталозі приховує картки, але залишає всі посилання в HTML.
+	var readerSearch = document.getElementById('reader-search');
+	if (readerSearch) {
+		var readerTiles = Array.from(document.querySelectorAll('.reader-tile'));
+		var readerCount = document.getElementById('reader-search-count');
+		var readerEmpty = document.getElementById('reader-search-empty');
+		readerSearch.addEventListener('input', function () {
+			var term = this.value.trim().toLowerCase();
+			var shown = 0;
+			readerTiles.forEach(function (tile) {
+				var match = tile.dataset.readerSearch.indexOf(term) !== -1;
+				tile.hidden = !match;
+				if (match) shown++;
+			});
+			readerCount.textContent = shown + (shown === 1 ? ' advisor' : ' advisors');
+			readerEmpty.hidden = shown !== 0;
+		});
+	}
+
+	// Мініквіз лише підказує запитання; особисті дані не збираються.
+	var readerQuiz = document.querySelector('.reader-profile__quiz');
+	if (readerQuiz) {
+		var choices = readerQuiz.querySelectorAll('[data-question]');
+		var answer = readerQuiz.querySelector('.reader-profile__answer');
+		choices.forEach(function (choice) {
+			choice.setAttribute('aria-pressed', 'false');
+			choice.addEventListener('click', function () {
+				choices.forEach(function (item) {
+					item.setAttribute('aria-pressed', String(item === choice));
+				});
+				answer.textContent = 'A question to bring: “' + choice.dataset.question + '”';
+			});
+		});
+	}
+
 	/**
 	 * Scroll-based header shadow
 	 */
