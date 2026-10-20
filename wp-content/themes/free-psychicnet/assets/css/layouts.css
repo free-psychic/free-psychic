@@ -1477,15 +1477,132 @@
 	font-weight: 600;
 }
 
-/* Ілюстрації всередині статей блогу. */
-.content-prose .fpn-blog-inline {
-	margin: var(--space-8) 0;
+/* Редакційні ілюстрації статей блогу. */
+.content-prose .fpn-editorial-figure {
+	display: grid;
+	grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+	width: min(900px, calc(100vw - 48px));
+	margin: clamp(36px, 5vw, 64px) 0 clamp(40px, 5vw, 68px) 50%;
+	transform: translateX(-50%);
+	overflow: hidden;
+	border: 1px solid #e8e0ed;
+	border-radius: 24px;
+	background: #f5f1f8;
+	box-shadow: 0 16px 40px rgba(40, 23, 72, .09);
 }
 
-.content-prose .fpn-blog-inline img {
+.content-prose .fpn-editorial-figure--reverse {
+	grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+}
+
+.fpn-editorial-figure__media {
+	min-width: 0;
+	background: #eae5f1;
+}
+
+.fpn-editorial-figure__media img {
 	display: block;
 	width: 100%;
-	max-width: 100%;
-	height: auto;
-	border-radius: var(--radius-lg);
+	height: 100%;
+	object-fit: cover;
+}
+
+.fpn-editorial-figure--square .fpn-editorial-figure__media {
+	aspect-ratio: 1;
+}
+
+.fpn-editorial-figure--reverse .fpn-editorial-figure__media {
+	order: 2;
+}
+
+.content-prose .fpn-editorial-figure__caption {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 16px;
+	padding: clamp(26px, 4vw, 48px);
+	color: #28194a;
+}
+
+.fpn-editorial-figure__label {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .16em;
+	line-height: 1.5;
+	text-transform: uppercase;
+	color: #8d638d;
+}
+
+.fpn-editorial-figure__label::before {
+	content: '';
+	width: 24px;
+	height: 1px;
+	background: #c48b67;
+}
+
+.fpn-editorial-figure__label span {
+	color: #c48b67;
+}
+
+.fpn-editorial-figure__text {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: clamp(20px, 2.15vw, 27px);
+	font-weight: 600;
+	line-height: 1.28;
+	letter-spacing: -.025em;
+}
+
+.content-prose .fpn-editorial-figure--wide {
+	grid-template-columns: 1fr;
+}
+
+.fpn-editorial-figure--wide .fpn-editorial-figure__media {
+	order: 0;
+	aspect-ratio: 16 / 9;
+}
+
+.content-prose .fpn-editorial-figure--wide .fpn-editorial-figure__caption {
+	gap: 10px;
+	padding: 23px clamp(26px, 4vw, 42px) 27px;
+}
+
+.fpn-editorial-figure--wide .fpn-editorial-figure__text {
+	font-size: clamp(19px, 2vw, 24px);
+}
+
+@media (max-width: 680px) {
+	.content-prose table {
+		display: block;
+		max-width: 100%;
+		overflow-x: auto;
+	}
+
+	.content-prose .fpn-editorial-figure,
+	.content-prose .fpn-editorial-figure--reverse {
+		grid-template-columns: 1fr;
+		width: 100%;
+		margin: 32px 0 38px;
+		transform: none;
+		border-radius: 18px;
+	}
+
+	.fpn-editorial-figure--reverse .fpn-editorial-figure__media {
+		order: 0;
+	}
+
+	.fpn-editorial-figure--square .fpn-editorial-figure__media {
+		aspect-ratio: 4 / 3;
+	}
+
+	.content-prose .fpn-editorial-figure__caption {
+		gap: 10px;
+		padding: 22px 24px 26px;
+	}
+
+	.fpn-editorial-figure__text {
+		font-size: 20px;
+	}
 }
